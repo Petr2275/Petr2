@@ -1,47 +1,57 @@
 package Booking.java;
 
-import java.awt.*;
+
 import java.time.LocalDate;
 
 public class Guest {
 
 
-    private String guestName;
-    private LocalDate guestBirthDay;
-    private List otherGuests;
+    private String name;
+    private String surname;
+    private LocalDate birthDay;
 
-
-
-    public Guest(String guestName, LocalDate guestBirthDay) {
-        this.guestName = guestName;
-        this.guestBirthDay = guestBirthDay;
-    }
-//region
-    public String getGuestName() {
-        return guestName;
+    public Guest(String name, String surname, LocalDate birthDay) {
+        this.name = name;
+        this.surname = surname;
+        this.birthDay = birthDay;
     }
 
-    public void setGuestName(String guestName) {
-        this.guestName = guestName;
+    //region
+
+    public String getName() {
+        return name;
     }
 
-    public LocalDate getGuestBirthDay() {
-        return guestBirthDay;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setGuestBirthDay(LocalDate guestBirthDay) {
-        this.guestBirthDay = guestBirthDay;
+    public String getSurname() {
+        return surname;
     }
 
-    public List getOtherGuests() {
-        return otherGuests;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public void setOtherGuests(List otherGuests) {
-        this.otherGuests = otherGuests;
+    public LocalDate getBirthDay() {
+        return birthDay;
     }
+
+    public void setBirthDay(LocalDate birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public String getDescription() {
+        return name + " " + surname + " (" + birthDay+ ")";
+    }
+
+    public void setBirthDate(LocalDate of) {
+    }
+
+
 //endregion
-
+    
 
 
 }

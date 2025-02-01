@@ -4,35 +4,40 @@ import Hotel.Booking;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
     public static void main(String[] args) {
-        Room withBalconyAndSeaView = new Room(1,1,1000);
-        Room withSeaViewNoBalcony = new Room(3,3,2400);
+        Guest adela = new Guest("Adéla", "Malíková", LocalDate.of(1993, 3, 13));
+        Guest jan = new Guest("Jan", "Dvořák", LocalDate.of(1995, 5, 5));
 
-        Booking firstBook = new Booking("working","od 19. do 26.7.2021","Adéla Malíková","1");
+        jan.setBirthDate(LocalDate.of(1995, 4, 5));
 
-        Booking secondBook = new Booking("recreacional","od 1. do 14.9.2021","Adéla Malíková a Jan Dvořáček","3");
-
-
-        Guest firstGuest = new Guest("Adéla Malíková",LocalDate.of(1993,3,13));
-        Guest secondGuest = new Guest("Jan Dvořáček",LocalDate.of(1995,4,5));
-
-        firstGuest.setGuestName("Adéla Malíková (narozena 13.3.1993)");
-        System.out.println( firstGuest.getGuestName());
-        secondGuest.setGuestName("Jan Dvořáček (narozen 5.4.1995)");
-        System.out.println( secondGuest.getGuestName());
+        System.out.println(jan.getDescription());
 
 
-        System.out.println("Výpis Rezervací");
-        System.out.println(firstBook.getGuestName() + " " + firstBook.getBookingDate() + " (" + firstBook.getNamberRoom() + ")");
+        Room room1 = new Room(1,1,1000,true,true);
+        Room room2 = new Room(2, 1, 1000, true, true);
+        Room room3 = new Room(3, 3, 2400, false, true);
 
-        System.out.println(secondBook.getGuestName() + " " + secondBook.getBookingDate() + " (" + secondBook.getNamberRoom() + ")");
+        Booking booking1 = new Booking(adela, room1, LocalDate.of(2021, 7, 19), LocalDate.of(2021, 7, 26), false);
+        Booking booking2 = new Booking(adela,room3, LocalDate.of(2021, 9, 1), LocalDate.of(2021, 9, 14), false);
+        booking2.addOtherGuest(jan);
 
+        List<Booking> bookingList = new ArrayList<>();
+        bookingList.add(booking1);
+        bookingList.add(booking2);
 
-
+        System.out.println("Výpis všech rezervací v systému:");
+        for (Booking booking : bookingList) {
+            System.out.println(booking.getBookingDescription());
         }
 
-
     }
+}
+
+
+
+
