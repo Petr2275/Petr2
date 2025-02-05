@@ -1,21 +1,23 @@
-package Booking.java;
+package Hotel;
 
+
+import java.math.BigDecimal;
 
 public class Room {
 
 
     private int namberRoom;
     private int namberBedOnRoom;
-    private int priceOneNightRoom;
+    private BigDecimal pricePerNight;
     private boolean hasBalcony;
     private boolean hasSeaView;
 
     public Room(int namberRoom, int namberBedOnRoom,
-                int priceOneNightRoom, boolean hasBalcony, boolean hasSeaView) {
+                BigDecimal pricePerNight, boolean hasBalcony, boolean hasSeaView) {
 
         this.namberRoom = namberRoom;
         this.namberBedOnRoom = namberBedOnRoom;
-        this.priceOneNightRoom = priceOneNightRoom;
+        this.pricePerNight = pricePerNight;
         this.hasBalcony = hasBalcony;
         this.hasSeaView = hasSeaView;
 
@@ -24,42 +26,52 @@ public class Room {
 //region
 
     public int getNamberRoom() {
+
         return namberRoom;
     }
 
     public void setNamberRoom(int namberRoom) {
+
         this.namberRoom = namberRoom;
     }
 
     public int getNamberBedOnRoom() {
+
         return namberBedOnRoom;
     }
 
     public void setNamberBedOnRoom(int namberBedOnRoom) {
+
         this.namberBedOnRoom = namberBedOnRoom;
     }
 
-    public int getPriceOneNightRoom() {
-        return priceOneNightRoom;
+    public BigDecimal getPricePerNight() {
+
+        return pricePerNight;
     }
 
-    public void setPriceOneNightRoom(int priceOneNightRoom) {
-        this.priceOneNightRoom = priceOneNightRoom;
+    public void setPricePerNight(BigDecimal pricePerNight) {
+
+        this.pricePerNight = pricePerNight;
     }
 
-    public boolean isHasBalcony() {
+    public boolean hasBalcony() {
+
         return hasBalcony;
     }
 
     public void setHasBalcony(boolean hasBalcony) {
+
         this.hasBalcony = hasBalcony;
     }
 
-    public boolean isHasSeaView() {
+    public boolean hasSeaView() {
+
         return hasSeaView;
     }
 
     public void setHasSeaView(boolean hasSeaView) {
+
         this.hasSeaView = hasSeaView;
     }
 
@@ -78,7 +90,9 @@ public class Room {
         } else {
             description += "ne";
         }
-        description += ", cena za noc: " + priceOneNightRoom + " Kč";
+        description += ", cena za noc: " + pricePerNight + " Kč";
         return description;
     }
+
+
 }
